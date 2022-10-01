@@ -1,9 +1,8 @@
 name: Post commit
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [closed]
 
 jobs:
   post-commit:
@@ -20,6 +19,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           echo ${{ github.event.pull_request.base.ref }}
+          echo ${{ github.event.pull_request.merged }}
           echo "Complete git config"
           npm version patch
           git push

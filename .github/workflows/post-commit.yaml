@@ -7,8 +7,8 @@ on:
 
 jobs:
   post-commit:
-    if: ${{ env.GITHUB_HEAD_REF }} == 'staging'
     runs-on: ubuntu-latest
+    if: ${{ env.GITHUB_HEAD_REF }} == 'staging'
     steps:
       - uses: actions/checkout@v3
 

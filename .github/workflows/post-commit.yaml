@@ -7,7 +7,7 @@ on:
 
 jobs:
   post-commit:
-    if: env.GITHUB_HEAD_REF == 'staging'
+    if: ${{ env.GITHUB_HEAD_REF }} == 'staging'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

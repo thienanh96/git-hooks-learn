@@ -24,4 +24,4 @@ jobs:
           git checkout origin/staging
           git branch
           npm version patch
-          git push origin staging
+          git push origin/staging

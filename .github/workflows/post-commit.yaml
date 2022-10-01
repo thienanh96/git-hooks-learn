@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  pre-commit:
+  post-commit:
     if: $GITHUB_HEAD_REF == 'staging'
     runs-on: ubuntu-latest
     steps:

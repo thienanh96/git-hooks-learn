@@ -6,7 +6,7 @@ on:
 
 jobs:
   post-commit:
-    if: ${{ github.event.pull_request.merged && github.event.pull_request.head.ref == "staging"}}
+    if: ${{ (github.event.pull_request.merged) && (github.event.pull_request.head.ref == 'staging')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

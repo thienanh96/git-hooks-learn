@@ -15,20 +15,22 @@ jobs:
         with:
           node-version: "14.x"
 
-      - uses: jitterbit/get-changed-files@v1
+      - id: getChangedFiles
+        uses: jitterbit/get-changed-files@v1
         with:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+
+      - run: |
           echo "All:"
-          echo "${{ steps.abc.outputs.all }}"
+          echo "${{ steps.getChangedFiles.outputs.all }}"
           echo "Added:"
-          echo "${{ steps.abc.outputs.added }}"
+          echo "${{ steps.getChangedFiles.outputs.added }}"
           echo "Removed:"
-          echo "${{ steps.abc.outputs.removed }}"
+          echo "${{ steps.getChangedFiles.outputs.removed }}"
           echo "Renamed:"
-          echo "${{ steps.abc.outputs.renamed }}"
+          echo "${{ steps.getChangedFiles.outputs.renamed }}"
           echo "Modified:"
-          echo "${{ steps.abc.outputs.modified }}"
+          echo "${{ steps.getChangedFiles.outputs.modified }}"
           echo "Added+Modified:"
-          echo "${{ steps.abc.outputs.added_modified }}"
+          echo "${{ steps.getChangedFiles.outputs.added_modified }}"

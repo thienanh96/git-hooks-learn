@@ -1,8 +1,8 @@
-name: Post commit
+name: Test
 
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches: [master, staging]
 
 jobs:
   post-commit:
@@ -15,6 +15,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14.x"
+
+      - uses: jitterbit/get-changed-files@v1
+
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
 
       - run: |
           git config user.name github-actions

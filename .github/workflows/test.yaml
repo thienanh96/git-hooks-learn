@@ -6,7 +6,6 @@ on:
 
 jobs:
   post-commit:
-    if: ${{ (github.event.pull_request.merged) && (github.event.pull_request.base.ref == 'main') && (github.event.pull_request.head.ref == 'staging')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,11 +21,3 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             echo "Do something with this ${changed_file}."
           done
-
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git fetch
-          git checkout staging
-          npm version patch
-          git push

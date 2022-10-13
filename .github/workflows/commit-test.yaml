@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-          token: ${{secrets.FULL_PERMISSIONS_TOKEN}}
+          token: ${{secrets.FULL_PERMISSIONS_SECRET}}
 
       - name: Run version update
         run: |

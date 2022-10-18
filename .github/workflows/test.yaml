@@ -1,0 +1,36 @@
+name: Test
+
+on:
+  push:
+    branches: [master, staging]
+
+jobs:
+  post-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+
+      - id: getChangedFiles
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: |
+          echo "All:"
+          echo "${{ steps.getChangedFiles.outputs.all }}"
+          echo "Added:"
+          echo "${{ steps.getChangedFiles.outputs.added }}"
+          echo "Removed:"
+          echo "${{ steps.getChangedFiles.outputs.removed }}"
+          echo "Renamed:"
+          echo "${{ steps.getChangedFiles.outputs.renamed }}"
+          echo "Modified:"
+          echo "${{ steps.getChangedFiles.outputs.modified }}"
+          echo "Added+Modified:"
+          echo "${{ steps.getChangedFiles.outputs.added_modified }}"

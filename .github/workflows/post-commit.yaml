@@ -49,9 +49,9 @@ jobs:
           git config user.email github-actions@github.com
           git fetch
           git checkout staging
-          cd data
           ls -a
           npm version patch
           git push
+        working-directory: data
 
 name: Increment API version

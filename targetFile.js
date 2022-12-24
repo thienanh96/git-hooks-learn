@@ -1,1 +1,1 @@
-const version = '1.0.5'; console.log(version + 'sometext');
+const version = '1.0.6'; console.log(version + 'sometext');

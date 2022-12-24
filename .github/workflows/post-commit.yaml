@@ -52,6 +52,6 @@ jobs:
           ls -a
           npm version patch
           git push
-        working-directory: data
+        working-directory: datawqwq
 
 name: Increment API version

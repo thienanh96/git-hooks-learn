@@ -32,7 +32,7 @@ on:
 
 jobs:
   increment-api-version:
-    if: ${{ (github.event.pull_request.merged) && (github.event.pull_request.base.ref == 'main') && (github.event.pull_request.head.ref == 'staging')}}
+    if: ${{ (github.event.pull_request.merged) && (github.event.pull_request.base.ref == 'main') && startsWith(github.event.pull_request.head.ref, 'rc-sprint-')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

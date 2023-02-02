@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/thienanh96/git-hooks-learn/issues"
   },
-  "homepage": "https://github.com/thienanh96/git-hooks-learn#readme"
+  "homepage": "https://github.com/thienanh96/git-hooks-learn#readme",
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "jsonwebtoken": "^9.0.0"
+  }
 }

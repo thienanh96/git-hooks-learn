@@ -1,5 +1,7 @@
 const fs = require("fs");
 
+console.log("main");
+
 const zipCodeData = JSON.parse(
   fs.readFileSync("georef-germany-postleitzahl.json", "utf-8")
 );

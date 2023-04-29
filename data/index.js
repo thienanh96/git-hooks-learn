@@ -9,7 +9,8 @@ const newData = zipCodeData.map((data) => ({
   postalName: data.fields.plz_name,
 }));
 
-fs.writeFileSync("newFile.json", JSON.stringify(newData));
+fs.writeFileSync("newFile.jsonnnn", JSON.stringify(newData));
+console.log("Tester");
 ewee;
 eweeew;
 eweeew;

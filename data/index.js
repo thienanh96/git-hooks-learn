@@ -17,6 +17,7 @@ console.log("Tester");
 console.log("Tester");
 console.log("Tester");
 
+console.log("main2");
 ewee;
 eweeew;
 eweeew;

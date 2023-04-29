@@ -11,6 +11,10 @@ const newData = zipCodeData.map((data) => ({
 
 fs.writeFileSync("newFile.jsonnnn", JSON.stringify(newData));
 console.log("Tester");
+console.log("Tester");
+console.log("Tester");
+console.log("Tester");
+
 ewee;
 eweeew;
 eweeew;

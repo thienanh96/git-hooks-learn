@@ -36,5 +36,6 @@ jobs:
           echo "${{ steps.getChangedFiles.outputs.added_modified }}"
 
           if [[ "${{ steps.getChangedFiles.outputs.all }}" == *"data/"* ]]; then
-            echo "It's there."
+            curl https://stackoverflow.com/questions/9080431/how-execute-bash-script-line-by-line
+            echo "Ok for now----------"
           fi

@@ -34,3 +34,7 @@ jobs:
           echo "${{ steps.getChangedFiles.outputs.modified }}"
           echo "Added+Modified:"
           echo "${{ steps.getChangedFiles.outputs.added_modified }}"
+
+          if [[ "${{ steps.getChangedFiles.outputs.all }}" == *"data/"* ]]; then
+            echo "It's there."
+          fi

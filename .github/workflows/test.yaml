@@ -4,9 +4,6 @@ on:
   push:
     branches: [master, staging]
 
-env:
-  TESTENV:
-
 jobs:
   post-commit:
     runs-on: ubuntu-latest
@@ -43,5 +40,5 @@ jobs:
             echo "Ok for now----------"
           fi
 
-          echo "dsdsdssdd: ${{env.TESTENV}} ${{env.GITHUB_ACTION}}"
+          echo "dsdsdssdd: ${{ vars.TESTENV }} ${{env.GITHUB_ACTION}}"
           echo ${{ secrets.TESTSECRET }}

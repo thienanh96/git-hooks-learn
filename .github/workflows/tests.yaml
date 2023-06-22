@@ -17,9 +17,6 @@ jobs:
         with:
           node-version: "18"
 
-      - run: npm ci --legacy-peer-deps
-        working-directory: api
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -27,12 +24,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.TYPEDOC_UPDATER_AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - run: npm run typedoc:generate
-        working-directory: api
-        shell: bash
-
       - run: aws s3 sync ./data s3://cashy-api-documentation/ --delete
-        working-directory: api
         shell: bash
         env:
           AWS_EC2_METADATA_DISABLED: true

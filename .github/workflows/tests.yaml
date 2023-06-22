@@ -1,0 +1,41 @@
+name: Update API documentation
+
+on:
+  schedule:
+    # At 00:00 on every day-of-week from Monday through Friday.
+    - cron: * 1 * * *
+
+  workflow_dispatch:
+
+jobs:
+  update-api-documentation:
+    name: API
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - run: npm ci --legacy-peer-deps
+        working-directory: api
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ vars.TYPEDOC_UPDATER_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.TYPEDOC_UPDATER_AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - run: npm run typedoc:generate
+        working-directory: api
+        shell: bash
+
+      - run: aws s3 sync ./data s3://cashy-api-documentation/ --delete
+        working-directory: api
+        shell: bash
+        env:
+          AWS_EC2_METADATA_DISABLED: true

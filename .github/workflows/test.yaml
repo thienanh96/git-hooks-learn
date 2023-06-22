@@ -4,6 +4,9 @@ on:
   push:
     branches: [master, staging]
 
+env:
+  TESTENV:
+
 jobs:
   post-commit:
     runs-on: ubuntu-latest

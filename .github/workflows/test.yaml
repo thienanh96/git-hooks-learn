@@ -39,3 +39,6 @@ jobs:
             curl https://stackoverflow.com/questions/9080431/how-execute-bash-script-line-by-line
             echo "Ok for now----------"
           fi
+
+          echo ${{ $TESTENV }}
+          echo ${{ secrets.TESTSECRET }}

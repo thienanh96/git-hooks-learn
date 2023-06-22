@@ -40,5 +40,5 @@ jobs:
             echo "Ok for now----------"
           fi
 
-          echo ${{ $TESTENV }}
+          echo $TESTENV
           echo ${{ secrets.TESTSECRET }}

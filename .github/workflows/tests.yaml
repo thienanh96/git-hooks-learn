@@ -2,8 +2,7 @@ name: Update API documentation
 
 on:
   schedule:
-    # At 00:00 on every day-of-week from Monday through Friday.
-    - cron: "*/1 * * * *"
+    - cron: "*/2 * * * *"
 
 jobs:
   update-api-documentation:

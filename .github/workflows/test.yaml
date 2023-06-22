@@ -40,5 +40,5 @@ jobs:
             echo "Ok for now----------"
           fi
 
-          echo "dsdsdssdd ${{env.TESTENV}}"
+          echo "dsdsdssdd: ${{env.TESTENV}} ${{env.GITHUB_ACTION}}"
           echo ${{ secrets.TESTSECRET }}
